@@ -16,3 +16,12 @@ body {
     font-weight: 600;
     color: #2c3e50;
 }
+
+/* banner section */
+
+#banner {
+    height: 100vh;
+    background: url("https://img.freepik.com/free-photo/huge-group-fresh-vegetables-fruits_135427-2731.jpg?w=1380");
+    background-size: cover;
+    background-position: center;
+}
