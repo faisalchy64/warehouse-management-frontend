@@ -7,7 +7,7 @@ function Header() {
         <Navbar bg="light" expand="sm" fixed="top" variant="light">
             <Container>
                 <Navbar.Brand as={Link} to="/">
-                    <h3 className="mb-0 text-warning">FruitMart</h3>
+                    <h3 className="mb-0 text-success">FruitMart</h3>
                 </Navbar.Brand>
 
                 <Navbar.Toggle aria-controls="nav-menu"></Navbar.Toggle>

@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Apple",
+        "img": "https://tinyurl.com/yjk7m4an",
+        "description": "Fresh And Organic",
+        "price": 30,
+        "quantity": 50,
+        "supplier": "Scrimba"
+    },
+    {
+        "name": "Banana",
+        "img": "https://tinyurl.com/3mpk9xxe",
+        "description": "Fresh And Organic",
+        "price": 15,
+        "quantity": 20,
+        "supplier": "Thomas"
+    },
+    {
+        "name": "Orange",
+        "img": "https://tinyurl.com/4f7tfxx4",
+        "description": "Fresh And Organic",
+        "price": 20,
+        "quantity": 15,
+        "supplier": "Elon Musk"
+    },
+    {
+        "name": "Mango",
+        "img": "https://tinyurl.com/4sj9znxd",
+        "description": "Fresh And Organic",
+        "price": 25,
+        "quantity": 10,
+        "supplier": "Alex Pie"
+    },
+    {
+        "name": "Pineapple",
+        "img": "https://tinyurl.com/3bzjha6j",
+        "description": "Fresh And Organic",
+        "price": 25,
+        "quantity": 10,
+        "supplier": "Jack Thomson"
+    },
+    {
+        "name": "Strawberry",
+        "img": "https://tinyurl.com/3utmcrvz",
+        "description": "Fresh And Organic",
+        "price": 30,
+        "quantity": 45,
+        "supplier": "David Thomas"
+    }
+]

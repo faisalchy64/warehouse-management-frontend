@@ -1,0 +1,30 @@
+import { useEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import ItemCard from "../ItemCard/ItemCard";
+
+function Inventory() {
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        fetch("data.json")
+            .then((res) => res.json())
+            .then((data) => setItems(data));
+    }, []);
+
+    return (
+        <section className="my-5">
+            <h1 className="text-center text-danger mb-4">Inventory Items</h1>
+            <Container>
+                <Row className="g-4">
+                    {items.map((item) => (
+                        <Col key={Math.random()} lg="4" md="6">
+                            <ItemCard item={item} />
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
+        </section>
+    );
+}
+
+export default Inventory;
