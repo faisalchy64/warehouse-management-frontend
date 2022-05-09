@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "name": "Apple",
         "img": "https://tinyurl.com/yjk7m4an",
         "description": "Fresh And Organic",
@@ -8,6 +9,7 @@
         "supplier": "Scrimba"
     },
     {
+        "id": 2,
         "name": "Banana",
         "img": "https://tinyurl.com/3mpk9xxe",
         "description": "Fresh And Organic",
@@ -16,6 +18,7 @@
         "supplier": "Thomas"
     },
     {
+        "id": 3,
         "name": "Orange",
         "img": "https://tinyurl.com/4f7tfxx4",
         "description": "Fresh And Organic",
@@ -24,6 +27,7 @@
         "supplier": "Elon Musk"
     },
     {
+        "id": 4,
         "name": "Mango",
         "img": "https://tinyurl.com/4sj9znxd",
         "description": "Fresh And Organic",
@@ -32,6 +36,7 @@
         "supplier": "Alex Pie"
     },
     {
+        "id": 5,
         "name": "Pineapple",
         "img": "https://tinyurl.com/3bzjha6j",
         "description": "Fresh And Organic",
@@ -40,6 +45,7 @@
         "supplier": "Jack Thomson"
     },
     {
+        "id": 6,
         "name": "Strawberry",
         "img": "https://tinyurl.com/3utmcrvz",
         "description": "Fresh And Organic",

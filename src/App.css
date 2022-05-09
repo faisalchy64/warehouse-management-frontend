@@ -48,3 +48,12 @@ body {
     width: 80%;
     border-radius: 8.5px;
 }
+
+/* mid banner section */
+
+#mid-banner {
+    height: 70vh;
+    background: url("https://img.freepik.com/free-photo/frame-made-fresh-fruits-berries_88281-5416.jpg?w=996");
+    background-size: cover;
+    background-position: center;
+}

@@ -1,5 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 function ItemCard({ item }) {
-    const { name, img, description, price, quantity, supplier } = item;
+    const { id, name, img, description, price, quantity, supplier } = item;
+
+    const navigate = useNavigate();
+
+    const handleUpdate = () => {
+        navigate(`/inventory/${id}`);
+    };
 
     return (
         <div className="item border border-3 p-3">
@@ -12,7 +20,10 @@ function ItemCard({ item }) {
             </h6>
             <h6>Supplier: {supplier}</h6>
 
-            <button className="update-btn d-block btn btn-danger text-white mt-4 mx-auto">
+            <button
+                onClick={handleUpdate}
+                className="update-btn d-block btn btn-danger text-white mt-4 mx-auto"
+            >
                 Update
             </button>
         </div>
