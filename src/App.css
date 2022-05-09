@@ -3,3 +3,16 @@
 body {
     font-family: "Poppins", sans-serif;
 }
+
+/* link css */
+
+.link {
+    text-decoration: none;
+    margin-right: 1rem;
+    color: #17202a;
+}
+
+.active {
+    font-weight: 600;
+    color: #2c3e50;
+}

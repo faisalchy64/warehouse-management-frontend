@@ -1,5 +1,6 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import ActiveLink from "../ActiveLink/ActiveLink";
 
 function Header() {
     return (
@@ -13,12 +14,8 @@ function Header() {
 
                 <Navbar.Collapse id="nav-menu">
                     <Nav className="ms-auto">
-                        <Nav.Link as={Link} to="/">
-                            Home
-                        </Nav.Link>
-                        <Nav.Link as={Link} to="/login">
-                            Login
-                        </Nav.Link>
+                        <ActiveLink to="/">Home</ActiveLink>
+                        <ActiveLink to="/login">Login</ActiveLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
