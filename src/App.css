@@ -17,6 +17,19 @@ body {
     color: #2c3e50;
 }
 
+/* header section */
+
+#signout {
+    border: none;
+    background: none;
+    color: #17202a;
+    font-weight: 600;
+}
+
+/* #signout:hover {
+    color: #0a58ca;
+} */
+
 /* banner section */
 
 #banner {
