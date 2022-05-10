@@ -22,6 +22,10 @@ function Inventory() {
                         </Col>
                     ))}
                 </Row>
+
+                <button className="d-block my-5 mx-auto btn btn-lg btn-warning">
+                    Manage Inventories
+                </button>
             </Container>
         </section>
     );

@@ -16,6 +16,7 @@ function Header() {
                     <Nav className="ms-auto">
                         <ActiveLink to="/">Home</ActiveLink>
                         <ActiveLink to="/login">Login</ActiveLink>
+                        <ActiveLink to="/signup">Signup</ActiveLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
