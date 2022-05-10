@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase";
 import ActiveLink from "../ActiveLink/ActiveLink";
+import Loading from "../Loading/Loading";
 
 function Header() {
     const [user, loading] = useAuthState(auth);
@@ -11,6 +12,10 @@ function Header() {
     const handleSignOut = () => {
         signOut(auth);
     };
+
+    if (loading) {
+        return <Loading />;
+    }
 
     return (
         <Navbar bg="light" expand="sm" fixed="top" variant="light">
