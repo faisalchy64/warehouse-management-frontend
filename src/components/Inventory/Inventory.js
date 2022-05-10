@@ -6,7 +6,7 @@ function Inventory() {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch("data.json")
+        fetch("http://localhost:5000/items")
             .then((res) => res.json())
             .then((data) => setItems(data));
     }, []);
@@ -17,7 +17,7 @@ function Inventory() {
             <Container>
                 <Row className="g-4">
                     {items.map((item) => (
-                        <Col key={Math.random()} lg="4" md="6">
+                        <Col key={item._id} lg="4" md="6">
                             <ItemCard item={item} />
                         </Col>
                     ))}

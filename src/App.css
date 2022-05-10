@@ -24,7 +24,6 @@ body {
     border: none;
     background: none;
     color: #17202a;
-    font-weight: 600;
 }
 
 /* #signout:hover {
@@ -121,8 +120,47 @@ body {
 /* loading component */
 
 .loading {
+    height: 100vh;
     position: absolute;
     inset: 0;
+}
+
+/* detail item section */
+
+.detail-section {
+    margin: 5rem 0;
+}
+
+.detail-section > div {
+    border-radius: 15px;
+}
+
+.detail-section > div img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+/* detail item section responsive */
+
+@media only screen and (max-width: 625px) {
+    .detail-section > div {
+        flex-direction: column;
+    }
+
+    .detail-section > div > div {
+        margin-top: 1rem;
+        margin-left: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .detail-section > div {
+        margin: 0 1rem;
+    }
+
+    .detail-section > div img {
+        width: 100%;
+    }
 }
 
 /* form section responsive */

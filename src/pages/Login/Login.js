@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import {
+    useAuthState,
+    useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthGoogle from "../../components/AuthGoogle/AuthGoogle";
 import auth from "../../firebase";
 
@@ -19,6 +22,18 @@ function Login() {
 
         signInWithEmailAndPassword(email, password);
     };
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [user] = useAuthState(auth);
+
+    const from = location.state?.from?.pathname || "/";
+
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true });
+        }
+    }, [user, from, navigate]);
 
     return (
         <section className="form-section d-flex flex-column justify-content-center align-items-center">

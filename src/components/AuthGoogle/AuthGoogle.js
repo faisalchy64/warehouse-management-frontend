@@ -3,7 +3,7 @@ import auth from "../../firebase";
 import google from "../../images/google.png";
 
 function AuthGoogle() {
-    const [signInWithGoogle, , , error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
 
     const handleGoogleAuth = () => {
         signInWithGoogle();

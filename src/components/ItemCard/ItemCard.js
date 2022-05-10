@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
 function ItemCard({ item }) {
-    const { id, name, img, description, price, quantity, supplier } = item;
+    const { _id, name, img, description, price, quantity, supplier } = item;
 
     const navigate = useNavigate();
 
     const handleUpdate = () => {
-        navigate(`/inventory/${id}`);
+        navigate(`/inventory/${_id}`);
     };
 
     return (
