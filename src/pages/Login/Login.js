@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import AuthGoogle from "../../components/AuthGoogle/AuthGoogle";
 import auth from "../../firebase";
 
 function Login() {
@@ -61,6 +62,8 @@ function Login() {
                     Login
                 </Button>
             </Form>
+
+            <AuthGoogle />
         </section>
     );
 }

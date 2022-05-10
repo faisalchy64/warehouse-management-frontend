@@ -97,6 +97,13 @@ body {
     border-radius: 10px;
 }
 
+/* google auth */
+
+.with-google {
+    border-radius: 15px;
+    cursor: pointer;
+}
+
 /* form section responsive */
 
 @media only screen and (max-width: 470px) {

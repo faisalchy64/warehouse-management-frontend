@@ -2,6 +2,7 @@ import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase";
+import AuthGoogle from "../../components/AuthGoogle/AuthGoogle";
 
 function Signup() {
     const [createUserWithEmailAndPassword, , , error] =
@@ -84,6 +85,8 @@ function Signup() {
                     Signup
                 </Button>
             </Form>
+
+            <AuthGoogle />
         </section>
     );
 }
