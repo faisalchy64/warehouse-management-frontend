@@ -2,11 +2,15 @@ function TableItem({ item }) {
     const { _id, name, price, quantity } = item;
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/item/${id}`, {
-            method: "DELETE",
-        })
-            .then((res) => res.json())
-            .then((data) => console.log(data));
+        const ensure = window.confirm("Are You Sure You Want To Delete?");
+
+        if (ensure) {
+            fetch(`http://localhost:5000/item/${id}`, {
+                method: "DELETE",
+            })
+                .then((res) => res.json())
+                .then((data) => console.log(data));
+        }
     };
 
     return (

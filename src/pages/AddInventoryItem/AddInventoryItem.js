@@ -1,9 +1,14 @@
 import { Button, Form } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase";
 
 function AddInventoryItem() {
+    const [user] = useAuthState(auth);
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        const email = user.email;
         const name = e.target.name.value;
         const img = e.target.image.value;
         const description = e.target.description.value;
@@ -11,7 +16,17 @@ function AddInventoryItem() {
         const quantity = parseInt(e.target.quantity.value);
         const supplier = e.target.supplier.value;
 
-        const item = { name, img, description, price, quantity, supplier };
+        const item = {
+            email,
+            name,
+            img,
+            description,
+            price,
+            quantity,
+            supplier,
+        };
+
+        // post data to database
 
         fetch("http://localhost:5000/item", {
             method: "POST",
