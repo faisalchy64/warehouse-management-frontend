@@ -18,7 +18,7 @@ function Header() {
     }
 
     return (
-        <Navbar bg="light" expand="sm" fixed="top" variant="light">
+        <Navbar bg="light" expand="sm" variant="light">
             <Container>
                 <Navbar.Brand as={Link} to="/">
                     <h3 className="mb-0 text-success">FruitMart</h3>
@@ -30,9 +30,19 @@ function Header() {
                     <Nav className="ms-auto">
                         <ActiveLink to="/">Home</ActiveLink>
                         {user ? (
-                            <button id="signout" onClick={handleSignOut}>
-                                Signout
-                            </button>
+                            <>
+                                <ActiveLink to="/manageinventory">
+                                    Manage Item
+                                </ActiveLink>
+                                <ActiveLink to="/addinventoryitem">
+                                    Add Item
+                                </ActiveLink>
+                                <ActiveLink to="/myitems">My Items</ActiveLink>
+
+                                <button id="signout" onClick={handleSignOut}>
+                                    Signout
+                                </button>
+                            </>
                         ) : (
                             <>
                                 <ActiveLink to="/login">Login</ActiveLink>

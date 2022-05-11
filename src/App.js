@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import ItemDetail from "./components/ItemDetail/ItemDetail";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
+import AddInventoryItem from "./pages/AddInventoryItem/AddInventoryItem";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import ManageInventory from "./pages/ManageInventory/ManageInventory";
@@ -28,6 +29,14 @@ function App() {
                     element={
                         <RequireAuth>
                             <ManageInventory />
+                        </RequireAuth>
+                    }
+                ></Route>
+                <Route
+                    path="/addinventoryitem"
+                    element={
+                        <RequireAuth>
+                            <AddInventoryItem />
                         </RequireAuth>
                     }
                 ></Route>
