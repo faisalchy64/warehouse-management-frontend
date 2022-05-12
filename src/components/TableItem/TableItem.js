@@ -5,7 +5,7 @@ function TableItem({ item }) {
         const ensure = window.confirm("Are You Sure You Want To Delete?");
 
         if (ensure) {
-            fetch(`http://localhost:5000/item/${id}`, {
+            fetch(`https://agile-journey-41866.herokuapp.com/item/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())

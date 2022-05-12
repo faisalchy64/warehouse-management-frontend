@@ -28,7 +28,7 @@ function AddInventoryItem() {
 
         // post data to database
 
-        fetch("http://localhost:5000/item", {
+        fetch("https://agile-journey-41866.herokuapp.com/item", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

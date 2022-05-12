@@ -12,7 +12,7 @@ function MyItems() {
     useEffect(() => {
         const getItems = async () => {
             const { data } = await axios.get(
-                `http://localhost:5000/myitems?email=${user.email}`,
+                `https://agile-journey-41866.herokuapp.com/myitems?email=${user.email}`,
                 {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem(

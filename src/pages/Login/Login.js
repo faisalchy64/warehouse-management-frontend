@@ -22,7 +22,7 @@ function Login() {
 
         // json web token
 
-        const { data } = await axios.post("http://localhost:5000/login", {
+        const { data } = await axios.post("https://agile-journey-41866.herokuapp.com/login", {
             email,
         });
 

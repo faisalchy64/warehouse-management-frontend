@@ -13,7 +13,7 @@ function ItemDetail() {
     // get specific data from database
 
     useEffect(() => {
-        fetch(`http://localhost:5000/item/${id}`)
+        fetch(`https://agile-journey-41866.herokuapp.com/item/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setItem(data);
@@ -31,7 +31,7 @@ function ItemDetail() {
         const updateItem = { name, description, price, quantity, supplier };
         updateItem.quantity = deliver - 1;
 
-        fetch(`http://localhost:5000/item/${id}`, {
+        fetch(`https://agile-journey-41866.herokuapp.com/item/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -55,7 +55,7 @@ function ItemDetail() {
         const updateItem = { name, description, price, quantity, supplier };
         updateItem.quantity = input + quantity;
 
-        fetch(`http://localhost:5000/item/${id}`, {
+        fetch(`https://agile-journey-41866.herokuapp.com/item/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
