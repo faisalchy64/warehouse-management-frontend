@@ -30,8 +30,6 @@ function Login() {
         );
 
         localStorage.setItem("accessToken", data);
-
-        console.log(data);
     };
 
     const navigate = useNavigate();

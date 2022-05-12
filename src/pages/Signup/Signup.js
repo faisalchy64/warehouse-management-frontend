@@ -32,8 +32,6 @@ function Signup() {
         );
 
         localStorage.setItem("accessToken", data);
-
-        console.log(data);
     };
 
     return (
