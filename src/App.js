@@ -10,6 +10,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import ManageInventory from "./pages/ManageInventory/ManageInventory";
 import MyItems from "./pages/MyItems/MyItems";
+import NotFound from "./pages/NotFound/NotFound";
 import Signup from "./pages/Signup/Signup";
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
                 <Route path="/about" element={<About />}></Route>
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/signup" element={<Signup />}></Route>
+                <Route path="*" element={<NotFound />}></Route>
             </Routes>
         </div>
     );
