@@ -22,8 +22,6 @@ function AuthGoogle() {
         } catch (error) {
             console.log(error);
         }
-
-        console.log(email);
     };
 
     return (
