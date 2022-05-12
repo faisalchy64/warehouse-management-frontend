@@ -17,7 +17,7 @@ function MyItems() {
                 );
                 setItems(filterItem);
             });
-    }, [items]);
+    }, [items, user.email]);
 
     return (
         <section className="my-5">

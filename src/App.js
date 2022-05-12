@@ -11,6 +11,7 @@ import Login from "./pages/Login/Login";
 import ManageInventory from "./pages/ManageInventory/ManageInventory";
 import MyItems from "./pages/MyItems/MyItems";
 import NotFound from "./pages/NotFound/NotFound";
+import ResetPass from "./pages/ResetPass/ResetPass";
 import Signup from "./pages/Signup/Signup";
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
                 <Route path="/blogs" element={<Blogs />}></Route>
                 <Route path="/about" element={<About />}></Route>
                 <Route path="/login" element={<Login />}></Route>
+                <Route path="/resetpassword" element={<ResetPass />}></Route>
                 <Route path="/signup" element={<Signup />}></Route>
                 <Route path="*" element={<NotFound />}></Route>
             </Routes>

@@ -65,6 +65,10 @@ function Login() {
                     {error ? error.message : ""}
                 </small>
 
+                <Link to="/resetpassword" className="d-block text-center mb-3">
+                    Forget Password
+                </Link>
+
                 <Link to="/signup" className="d-block text-center mb-3">
                     Create An Account
                 </Link>

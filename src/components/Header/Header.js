@@ -29,6 +29,8 @@ function Header() {
                 <Navbar.Collapse id="nav-menu">
                     <Nav className="ms-auto">
                         <ActiveLink to="/">Home</ActiveLink>
+                        <ActiveLink to="/blogs">Blogs</ActiveLink>
+                        <ActiveLink to="/about">About</ActiveLink>
                         {user ? (
                             <>
                                 <ActiveLink to="/manageinventory">
