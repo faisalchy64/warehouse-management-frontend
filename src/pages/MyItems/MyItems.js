@@ -9,13 +9,14 @@ function MyItems() {
     const [user] = useAuthState(auth);
 
     useEffect(() => {
-        fetch("http://localhost:5000/items")
+        fetch(`http://localhost:5000/myitems?email=${user.email}`)
             .then((res) => res.json())
             .then((data) => {
-                const filterItem = data.filter(
-                    (item) => item.email === user.email
-                );
-                setItems(filterItem);
+                setItems(data);
+                // const filterItem = data.filter(
+                //     (item) => item.email === user.email
+                // );
+                // setItems(filterItem);
             });
     }, [items, user.email]);
 
