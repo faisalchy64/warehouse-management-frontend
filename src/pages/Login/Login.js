@@ -7,6 +7,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthGoogle from "../../components/AuthGoogle/AuthGoogle";
 import auth from "../../firebase";
+const axios = require("axios").default;
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -14,13 +15,20 @@ function Login() {
     const [signInWithEmailAndPassword, , , error] =
         useSignInWithEmailAndPassword(auth);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // const email = e.target.email.vaule;
-        // const password = e.target.password.vaule;
+        await signInWithEmailAndPassword(email, password);
 
-        signInWithEmailAndPassword(email, password);
+        // json web token
+
+        const { data } = await axios.post("http://localhost:5000/login", {
+            email,
+        });
+
+        localStorage.setItem("accessToken", data);
+
+        console.log(data);
     };
 
     const navigate = useNavigate();

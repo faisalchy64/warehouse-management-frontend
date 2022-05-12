@@ -18,7 +18,7 @@ function Header() {
     }
 
     return (
-        <Navbar bg="light" expand="sm" variant="light">
+        <Navbar bg="light" expand="md" variant="light">
             <Container>
                 <Navbar.Brand as={Link} to="/">
                     <h3 className="mb-0 text-success">FruitMart</h3>
