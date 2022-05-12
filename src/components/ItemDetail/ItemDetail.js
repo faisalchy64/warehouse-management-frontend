@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 function ItemDetail() {
     const [item, setItem] = useState({});
     const [deliver, setDeliver] = useState(0);
-    const [stock, setStock] = useState(0);
     const { id } = useParams();
 
     const { name, description, price, quantity, supplier } = item;
@@ -19,13 +19,15 @@ function ItemDetail() {
                 setItem(data);
                 setDeliver(quantity);
             });
-    }, [id, quantity, stock]);
+    }, [id, quantity]);
 
     // update a specific item delivered quantity
 
     const handleDeliver = () => {
         if (deliver > 0) {
             setDeliver(deliver - 1);
+        } else {
+            return;
         }
 
         const updateItem = { name, description, price, quantity, supplier };
@@ -48,12 +50,13 @@ function ItemDetail() {
         e.preventDefault();
         const input = parseInt(e.target.quantity.value);
 
-        if (input > 0) {
-            setStock(input + quantity);
-        }
-
         const updateItem = { name, description, price, quantity, supplier };
-        updateItem.quantity = input + quantity;
+        if (input > 0) {
+            updateItem.quantity = input + quantity;
+            setDeliver(deliver + input);
+        } else {
+            return;
+        }
 
         fetch(`https://agile-journey-41866.herokuapp.com/item/${id}`, {
             method: "PUT",
@@ -67,6 +70,10 @@ function ItemDetail() {
 
         e.target.reset();
     };
+
+    if (!item?.img) {
+        return <Loading />;
+    }
 
     return (
         <section className="detail-section d-flex flex-column justify-content-center align-items-center">
@@ -95,6 +102,7 @@ function ItemDetail() {
                     <Form.Control
                         type="text"
                         name="quantity"
+                        autoComplete="off"
                         placeholder="Enter quantity"
                     />
                 </Form.Group>

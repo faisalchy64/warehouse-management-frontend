@@ -22,9 +22,12 @@ function Login() {
 
         // json web token
 
-        const { data } = await axios.post("https://agile-journey-41866.herokuapp.com/login", {
-            email,
-        });
+        const { data } = await axios.post(
+            "https://agile-journey-41866.herokuapp.com/login",
+            {
+                email,
+            }
+        );
 
         localStorage.setItem("accessToken", data);
 
@@ -90,7 +93,7 @@ function Login() {
                 </Button>
             </Form>
 
-            <AuthGoogle />
+            <AuthGoogle user={user} />
         </section>
     );
 }

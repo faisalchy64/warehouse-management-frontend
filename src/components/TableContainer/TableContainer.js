@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import TableItem from "../TableItem/TableItem";
+import Loading from "../Loading/Loading";
 
 function TableContainer() {
     const [items, setItems] = useState([]);
@@ -10,6 +11,10 @@ function TableContainer() {
             .then((res) => res.json())
             .then((data) => setItems(data));
     }, [items]);
+
+    if (items.length === 0) {
+        return <Loading />;
+    }
 
     return (
         <Table id="table" striped bordered hover variant="dark">

@@ -1,12 +1,29 @@
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../firebase";
 import google from "../../images/google.png";
+const axios = require("axios").default;
 
 function AuthGoogle() {
     const [signInWithGoogle] = useSignInWithGoogle(auth);
+    const handleGoogleAuth = async () => {
+        await signInWithGoogle();
 
-    const handleGoogleAuth = () => {
-        signInWithGoogle();
+        const email = auth.currentUser.email;
+
+        try {
+            const { data } = await axios.post(
+                "https://agile-journey-41866.herokuapp.com/login",
+                {
+                    email,
+                }
+            );
+
+            localStorage.setItem("accessToken", data);
+        } catch (error) {
+            console.log(error);
+        }
+
+        console.log(email);
     };
 
     return (

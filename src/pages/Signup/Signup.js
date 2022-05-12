@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase";
 import AuthGoogle from "../../components/AuthGoogle/AuthGoogle";
+const axios = require("axios").default;
 
 function Signup() {
     const [createUserWithEmailAndPassword, , , error] =
@@ -10,7 +11,7 @@ function Signup() {
             sendEmailVerification: true,
         });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const email = e.target.email.value;
@@ -18,10 +19,21 @@ function Signup() {
         const confirmPassword = e.target.confirmPassword.value;
 
         if (password === confirmPassword) {
-            createUserWithEmailAndPassword(email, password);
+            await createUserWithEmailAndPassword(email, password);
         }
 
-        console.log(email, password, confirmPassword);
+        // json web token
+
+        const { data } = await axios.post(
+            "https://agile-journey-41866.herokuapp.com/login",
+            {
+                email,
+            }
+        );
+
+        localStorage.setItem("accessToken", data);
+
+        console.log(data);
     };
 
     return (
