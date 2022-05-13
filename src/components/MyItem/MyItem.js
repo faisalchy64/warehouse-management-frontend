@@ -1,5 +1,5 @@
 function MyItem({ item }) {
-    const { _id, name, img, description, price, quantity, supplier } = item;
+    const { _id, name, img, description, price, quantity, supplier, sold } = item;
 
     const handleDelete = (id) => {
         const ensure = window.confirm("Are You Sure You Want To Delete");
@@ -23,6 +23,7 @@ function MyItem({ item }) {
                 Quantity: {quantity} {name === "Banana" ? "Dozen" : "KG"}
             </h6>
             <h6>Supplier: {supplier}</h6>
+            <h6>Sold: {sold}</h6>
 
             <button
                 onClick={() => handleDelete(_id)}
