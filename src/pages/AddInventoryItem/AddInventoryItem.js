@@ -15,6 +15,7 @@ function AddInventoryItem() {
         const price = parseInt(e.target.price.value);
         const quantity = parseInt(e.target.quantity.value);
         const supplier = e.target.supplier.value;
+        const sold = parseInt(e.target.sold.value);
 
         const item = {
             email,
@@ -24,6 +25,7 @@ function AddInventoryItem() {
             price,
             quantity,
             supplier,
+            sold,
         };
 
         // post data to database
@@ -42,7 +44,7 @@ function AddInventoryItem() {
     };
 
     return (
-        <section className="form-section d-flex flex-column justify-content-center align-items-center">
+        <section className="py-5 d-flex flex-column justify-content-center align-items-center">
             <h2 className="mb-4">Add Inventory Item</h2>
             <Form className="form border border-3 p-3" onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicName">
@@ -106,6 +108,17 @@ function AddInventoryItem() {
                         type="text"
                         name="supplier"
                         placeholder="Enter supplier name"
+                        autoComplete="off"
+                        required
+                    />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicSold">
+                    <Form.Label>Sold</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="sold"
+                        placeholder="Enter sold amount"
                         autoComplete="off"
                         required
                     />

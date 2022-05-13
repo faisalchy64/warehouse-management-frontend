@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
 
 function ItemDetail() {
     const [item, setItem] = useState({});
     const [deliver, setDeliver] = useState(0);
+    const [sell, setSell] = useState(0);
     const { id } = useParams();
 
-    const { name, description, price, quantity, supplier } = item;
+    const { name, description, price, quantity, supplier, sold } = item;
 
     // get specific data from database
 
@@ -18,20 +19,30 @@ function ItemDetail() {
             .then((data) => {
                 setItem(data);
                 setDeliver(quantity);
+                setSell(sold);
             });
-    }, [id, quantity]);
+    }, [id, quantity, sold]);
 
     // update a specific item delivered quantity
 
     const handleDeliver = () => {
         if (deliver > 0) {
             setDeliver(deliver - 1);
+            setSell(sell + 1);
         } else {
             return;
         }
 
-        const updateItem = { name, description, price, quantity, supplier };
+        const updateItem = {
+            name,
+            description,
+            price,
+            quantity,
+            supplier,
+            sold,
+        };
         updateItem.quantity = deliver - 1;
+        updateItem.sold = sell + 1;
 
         fetch(`https://agile-journey-41866.herokuapp.com/item/${id}`, {
             method: "PUT",
@@ -50,7 +61,13 @@ function ItemDetail() {
         e.preventDefault();
         const input = parseInt(e.target.quantity.value);
 
-        const updateItem = { name, description, price, quantity, supplier };
+        const updateItem = {
+            name,
+            description,
+            price,
+            quantity,
+            supplier,
+        };
         if (input > 0) {
             updateItem.quantity = input + quantity;
             setDeliver(deliver + input);
@@ -85,6 +102,7 @@ function ItemDetail() {
                     <h6>Price: {price}</h6>
                     <h6>Quantity: {deliver}</h6>
                     <h6>Supplier: {supplier}</h6>
+                    <h6>Sold: {sell}</h6>
 
                     <button
                         onClick={handleDeliver}
@@ -115,6 +133,12 @@ function ItemDetail() {
                     Stock
                 </Button>
             </Form>
+
+            <Link className="text-decoration-none" to="/manageinventory">
+                <button className="d-block my-5 mx-auto btn btn-lg btn-warning">
+                    Manage Inventories
+                </button>
+            </Link>
         </section>
     );
 }

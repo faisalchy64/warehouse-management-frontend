@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ItemCard from "../ItemCard/ItemCard";
+import Loading from "../Loading/Loading";
 
 function Inventory() {
     const [items, setItems] = useState([]);
@@ -11,6 +12,10 @@ function Inventory() {
             .then((res) => res.json())
             .then((data) => setItems(data));
     }, []);
+
+    setTimeout(() => {
+        return <Loading />;
+    }, 1500);
 
     return (
         <section className="my-5">

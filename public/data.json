@@ -5,7 +5,8 @@
         "description": "Fresh And Organic",
         "price": 30,
         "quantity": 50,
-        "supplier": "Scrimba"
+        "supplier": "Scrimba",
+        "sold": 0
     },
     {
         "name": "Banana",
@@ -13,7 +14,8 @@
         "description": "Fresh And Organic",
         "price": 15,
         "quantity": 20,
-        "supplier": "Thomas"
+        "supplier": "Thomas",
+        "sold": 0
     },
     {
         "name": "Orange",
@@ -21,7 +23,8 @@
         "description": "Fresh And Organic",
         "price": 20,
         "quantity": 15,
-        "supplier": "Elon Musk"
+        "supplier": "Elon Musk",
+        "sold": 0
     },
     {
         "name": "Mango",
@@ -29,7 +32,8 @@
         "description": "Fresh And Organic",
         "price": 25,
         "quantity": 10,
-        "supplier": "Alex Pie"
+        "supplier": "Alex Pie",
+        "sold": 0
     },
     {
         "name": "Pineapple",
@@ -37,7 +41,8 @@
         "description": "Fresh And Organic",
         "price": 25,
         "quantity": 10,
-        "supplier": "Jack Thomson"
+        "supplier": "Jack Thomson",
+        "sold": 0
     },
     {
         "name": "Strawberry",
@@ -45,6 +50,7 @@
         "description": "Fresh And Organic",
         "price": 30,
         "quantity": 45,
-        "supplier": "David Thomas"
+        "supplier": "David Thomas",
+        "sold": 0
     }
 ]

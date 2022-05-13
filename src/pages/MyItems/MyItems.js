@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
+import Loading from "../../components/Loading/Loading";
 import MyItem from "../../components/MyItem/MyItem";
 import auth from "../../firebase";
 const axios = require("axios").default;
@@ -27,6 +28,10 @@ function MyItems() {
 
         getItems();
     }, [items, user.email]);
+
+    setTimeout(() => {
+        return <Loading />;
+    }, 1500);
 
     return (
         <section className="my-5">
