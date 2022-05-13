@@ -1,6 +1,6 @@
 # FruitMart
 
-[Live Site Link]("https://warehouse-management-web-1178f.web.app")
+[Live Site]("https://warehouse-management-web-1178f.web.app")
 
 # Short Description
 
