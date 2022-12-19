@@ -1,4 +1,4 @@
-function MyItem({ item }) {
+function MyItem({ item, items, setItems }) {
     const { _id, name, img, description, price, quantity, supplier, sold } =
         item;
 
@@ -10,7 +10,9 @@ function MyItem({ item }) {
                 method: "DELETE",
             })
                 .then((res) => res.json())
-                .then((data) => null);
+                .then((data) =>
+                    setItems(items.filter((item) => item._id !== id))
+                );
         }
     };
 

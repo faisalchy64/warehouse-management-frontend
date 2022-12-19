@@ -1,4 +1,4 @@
-function TableItem({ item }) {
+function TableItem({ item, items, setItems }) {
     const { _id, name, price, quantity } = item;
 
     const handleDelete = (id) => {
@@ -9,7 +9,9 @@ function TableItem({ item }) {
                 method: "DELETE",
             })
                 .then((res) => res.json())
-                .then((data) => console.log(data));
+                .then((data) =>
+                    setItems(items.filter((item) => item._id !== _id))
+                );
         }
     };
 

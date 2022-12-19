@@ -27,7 +27,7 @@ function MyItems() {
         };
 
         getItems();
-    }, [items, user.email]);
+    }, [user.email]);
 
     setTimeout(() => {
         return <Loading />;
@@ -40,7 +40,11 @@ function MyItems() {
                 <Row className="g-4">
                     {items.map((item) => (
                         <Col key={item._id} lg="4" md="6">
-                            <MyItem item={item} />
+                            <MyItem
+                                item={item}
+                                items={items}
+                                setItems={setItems}
+                            />
                         </Col>
                     ))}
                 </Row>

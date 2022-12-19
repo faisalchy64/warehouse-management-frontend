@@ -5,14 +5,18 @@ import Loading from "../Loading/Loading";
 
 function TableContainer() {
     const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch("https://warehouse-website-backend.onrender.com/items")
             .then((res) => res.json())
-            .then((data) => setItems(data));
-    }, [items]);
+            .then((data) => {
+                setItems(data);
+                setLoading(false);
+            });
+    }, []);
 
-    if (items.length === 0) {
+    if (loading) {
         return <Loading />;
     }
 
@@ -28,7 +32,12 @@ function TableContainer() {
             </thead>
             <tbody className="text-center">
                 {items.map((item) => (
-                    <TableItem key={item._id} item={item} />
+                    <TableItem
+                        key={item._id}
+                        item={item}
+                        items={items}
+                        setItems={setItems}
+                    />
                 ))}
             </tbody>
         </Table>
