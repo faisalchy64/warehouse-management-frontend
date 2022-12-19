@@ -14,7 +14,7 @@ function ItemDetail() {
     // get specific data from database
 
     useEffect(() => {
-        fetch(`https://agile-journey-41866.herokuapp.com/item/${id}`)
+        fetch(`https://warehouse-website-backend.onrender.com/item/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setItem(data);
@@ -44,7 +44,7 @@ function ItemDetail() {
         updateItem.quantity = deliver - 1;
         updateItem.sold = sell + 1;
 
-        fetch(`https://agile-journey-41866.herokuapp.com/item/${id}`, {
+        fetch(`https://warehouse-website-backend.onrender.com/item/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -75,7 +75,7 @@ function ItemDetail() {
             return;
         }
 
-        fetch(`https://agile-journey-41866.herokuapp.com/item/${id}`, {
+        fetch(`https://warehouse-website-backend.onrender.com/item/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

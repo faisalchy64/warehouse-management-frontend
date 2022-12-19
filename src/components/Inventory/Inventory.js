@@ -8,7 +8,7 @@ function Inventory() {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch("https://agile-journey-41866.herokuapp.com/items")
+        fetch("https://warehouse-website-backend.onrender.com/items")
             .then((res) => res.json())
             .then((data) => setItems(data));
     }, []);

@@ -12,7 +12,7 @@ function AuthGoogle() {
 
         try {
             const { data } = await axios.post(
-                "https://agile-journey-41866.herokuapp.com/login",
+                "https://warehouse-website-backend.onrender.com/login",
                 {
                     email,
                 }

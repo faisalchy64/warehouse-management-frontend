@@ -13,7 +13,7 @@ function MyItems() {
     useEffect(() => {
         const getItems = async () => {
             const { data } = await axios.get(
-                `https://agile-journey-41866.herokuapp.com/myitems?email=${user.email}`,
+                `https://warehouse-website-backend.onrender.com/myitems?email=${user.email}`,
                 {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem(

@@ -1,11 +1,12 @@
 function MyItem({ item }) {
-    const { _id, name, img, description, price, quantity, supplier, sold } = item;
+    const { _id, name, img, description, price, quantity, supplier, sold } =
+        item;
 
     const handleDelete = (id) => {
         const ensure = window.confirm("Are You Sure You Want To Delete");
 
         if (ensure) {
-            fetch(`https://agile-journey-41866.herokuapp.com/item/${id}`, {
+            fetch(`https://warehouse-website-backend.onrender.com/item/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())

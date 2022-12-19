@@ -30,7 +30,7 @@ function AddInventoryItem() {
 
         // post data to database
 
-        fetch("https://agile-journey-41866.herokuapp.com/item", {
+        fetch("https://warehouse-website-backend.onrender.com/item", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
