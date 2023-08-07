@@ -9,9 +9,11 @@ function TableItem({ item, items, setItems }) {
                 method: "DELETE",
             })
                 .then((res) => res.json())
-                .then((data) =>
-                    setItems(items.filter((item) => item._id !== _id))
-                );
+                .then((data) => {
+                    if (data.acknowledged) {
+                        setItems(items.filter((item) => item._id !== _id));
+                    }
+                });
         }
     };
 

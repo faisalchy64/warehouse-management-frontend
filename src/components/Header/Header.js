@@ -4,7 +4,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase";
 import ActiveLink from "../ActiveLink/ActiveLink";
-import Loading from "../Loading/Loading";
 
 function Header() {
     const [user, loading] = useAuthState(auth);
@@ -13,15 +12,11 @@ function Header() {
         signOut(auth);
     };
 
-    if (loading) {
-        return <Loading />;
-    }
-
     return (
         <Navbar bg="light" expand="md" variant="light">
             <Container>
                 <Navbar.Brand as={Link} to="/">
-                    <h3 className="mb-0 text-success">FruitMart</h3>
+                    <h3 className="mb-0 fw-bold text-danger">FruitMart</h3>
                 </Navbar.Brand>
 
                 <Navbar.Toggle aria-controls="nav-menu"></Navbar.Toggle>
@@ -29,9 +24,9 @@ function Header() {
                 <Navbar.Collapse id="nav-menu">
                     <Nav className="ms-auto">
                         <ActiveLink to="/">Home</ActiveLink>
-                        <ActiveLink to="/blogs">Blogs</ActiveLink>
+                        {/* <ActiveLink to="/blogs">Blogs</ActiveLink> */}
                         <ActiveLink to="/about">About</ActiveLink>
-                        {user ? (
+                        {loading ? null : user ? (
                             <>
                                 <ActiveLink to="/manageinventory">
                                     Manage Item

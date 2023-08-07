@@ -21,7 +21,7 @@ function TableContainer() {
     }
 
     return (
-        <Table id="table" striped bordered hover variant="dark">
+        <Table responsive striped bordered hover variant="dark">
             <thead className="text-center">
                 <tr>
                     <th>Name</th>

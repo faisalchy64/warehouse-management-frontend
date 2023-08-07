@@ -10,8 +10,8 @@ function ItemCard({ item }) {
     };
 
     return (
-        <div className="item border">
-            <img src={img} alt="" />
+        <div className="item h-100 border">
+            <img src={img} alt={name} loading="lazy" />
             <div className="px-3 py-4">
                 <h3>{name}</h3>
                 <h6>Description: {description}</h6>
