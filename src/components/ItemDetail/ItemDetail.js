@@ -5,11 +5,10 @@ import Loading from "../Loading/Loading";
 
 function ItemDetail() {
     const [item, setItem] = useState({});
-    const [deliver, setDeliver] = useState(0);
-    const [sell, setSell] = useState(0);
+    const [loading, setLoading] = useState(true);
     const { id } = useParams();
 
-    const { name, description, price, quantity, supplier, sold } = item;
+    const { name, img, description, price, quantity, supplier, sold } = item;
 
     // get specific data from database
 
@@ -18,41 +17,35 @@ function ItemDetail() {
             .then((res) => res.json())
             .then((data) => {
                 setItem(data);
-                setDeliver(quantity);
-                setSell(sold);
+                setLoading(false);
             });
-    }, [id, quantity, sold]);
+    }, [id]);
 
     // update a specific item delivered quantity
 
     const handleDeliver = () => {
-        if (deliver > 0) {
-            setDeliver(deliver - 1);
-            setSell(sell + 1);
-        } else {
-            return;
+        if (quantity > 0) {
+            fetch(`https://warehouse-website-backend.onrender.com/item/${id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    quantity: quantity - 1,
+                    sold: sold + 1,
+                }),
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.acknowledged) {
+                        setItem({
+                            ...item,
+                            quantity: quantity - 1,
+                            sold: sold + 1,
+                        });
+                    }
+                });
         }
-
-        const updateItem = {
-            name,
-            description,
-            price,
-            quantity,
-            supplier,
-            sold,
-        };
-        updateItem.quantity = deliver - 1;
-        updateItem.sold = sell + 1;
-
-        fetch(`https://warehouse-website-backend.onrender.com/item/${id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(updateItem),
-        })
-            .then((res) => res.json())
-            .then((data) => null);
     };
 
     // update specific item stock quantity
@@ -61,48 +54,42 @@ function ItemDetail() {
         e.preventDefault();
         const input = parseInt(e.target.quantity.value);
 
-        const updateItem = {
-            name,
-            description,
-            price,
-            quantity,
-            supplier,
-        };
-        if (input > 0) {
-            updateItem.quantity = input + quantity;
-            setDeliver(deliver + input);
-        } else {
-            return;
+        if (isNaN(input) === false) {
+            fetch(`https://warehouse-website-backend.onrender.com/item/${id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ quantity: quantity + input }),
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    if (data.acknowledged) {
+                        setItem({ ...item, quantity: quantity + input });
+                    }
+                });
+
+            e.target.reset();
         }
-
-        fetch(`https://warehouse-website-backend.onrender.com/item/${id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(updateItem),
-        })
-            .then((res) => res.json())
-            .then((data) => null);
-
-        e.target.reset();
     };
 
-    if (!item?.img) {
+    if (loading) {
         return <Loading />;
     }
 
     return (
-        <section className="detail-section d-flex flex-column justify-content-center align-items-center">
-            <div className="d-flex bg-light p-3 border border-3">
-                <img src={item.img} alt="" />
-                <div className="ms-3">
+        <section className="detail-section d-flex flex-column justify-content-center align-items-center mx-3">
+            <div className="d-md-flex bg-light border">
+                <img src={img} alt={name} className="d-none d-md-block" />
+                <img src={img} alt={name} className="w-100 d-md-none" />
+                <div className="px-4 py-3">
                     <h1>{name}</h1>
                     <h6>Description: {description}</h6>
                     <h6>Price: {price}</h6>
-                    <h6>Quantity: {deliver}</h6>
+                    <h6>Quantity: {quantity}</h6>
                     <h6>Supplier: {supplier}</h6>
-                    <h6>Sold: {sell}</h6>
+                    <h6>Sold: {sold}</h6>
 
                     <button
                         onClick={handleDeliver}
@@ -114,11 +101,11 @@ function ItemDetail() {
             </div>
 
             <h2 className="mt-5">Restock Item</h2>
-            <Form className="form border border-3 p-3" onSubmit={handleStock}>
+            <Form className="form border p-3" onSubmit={handleStock}>
                 <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Label>Quantity</Form.Label>
                     <Form.Control
-                        type="text"
+                        type="number"
                         name="quantity"
                         autoComplete="off"
                         placeholder="Enter quantity"
