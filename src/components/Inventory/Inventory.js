@@ -6,19 +6,23 @@ import Loading from "../Loading/Loading";
 
 function Inventory() {
     const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch("https://warehouse-website-backend.onrender.com/items")
             .then((res) => res.json())
-            .then((data) => setItems(data));
+            .then((data) => {
+                setItems(data);
+                setLoading(false);
+            });
     }, []);
 
-    setTimeout(() => {
+    if (loading) {
         return <Loading />;
-    }, 1500);
+    }
 
     return (
-        <section className="my-5">
+        <section className="min-vh-100 my-5">
             <h1 className="text-center text-danger mb-4">Inventory Items</h1>
             <Container>
                 <Row className="g-4">
