@@ -8,6 +8,7 @@ const axios = require("axios").default;
 
 function MyItems() {
     const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [user] = useAuthState(auth);
 
     useEffect(() => {
@@ -24,14 +25,15 @@ function MyItems() {
             );
 
             setItems(data);
+            setLoading(false);
         };
 
         getItems();
     }, [user.email]);
 
-    setTimeout(() => {
+    if (loading) {
         return <Loading />;
-    }, 1500);
+    }
 
     return (
         <section className="my-5">

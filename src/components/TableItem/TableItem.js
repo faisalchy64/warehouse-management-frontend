@@ -25,7 +25,7 @@ function TableItem({ item, items, setItems }) {
             <td>
                 <button
                     onClick={() => handleDelete(_id)}
-                    className="btn btn-danger"
+                    className="btn btn-sm btn-danger"
                 >
                     Delete
                 </button>
