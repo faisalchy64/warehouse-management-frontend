@@ -15,7 +15,7 @@ function AddInventoryItem() {
         const price = parseInt(e.target.price.value);
         const quantity = parseInt(e.target.quantity.value);
         const supplier = e.target.supplier.value;
-        const sold = parseInt(e.target.sold.value);
+        const sold = 0;
 
         const item = {
             email,
@@ -38,7 +38,7 @@ function AddInventoryItem() {
             body: JSON.stringify(item),
         })
             .then((res) => res.json())
-            .then((data) => null);
+            .then((data) => data);
 
         e.target.reset();
     };
@@ -46,7 +46,7 @@ function AddInventoryItem() {
     return (
         <section className="py-5 d-flex flex-column justify-content-center align-items-center">
             <h2 className="mb-4">Add Inventory Item</h2>
-            <Form className="form border border-3 p-3" onSubmit={handleSubmit}>
+            <Form className="form border p-3" onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Name</Form.Label>
                     <Form.Control
@@ -83,22 +83,24 @@ function AddInventoryItem() {
                 <Form.Group className="mb-3" controlId="formBasicPrice">
                     <Form.Label>Price</Form.Label>
                     <Form.Control
-                        type="text"
+                        type="number"
                         name="price"
                         placeholder="Enter fruit price"
                         autoComplete="off"
                         required
+                        min="5"
                     />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicQuantity">
                     <Form.Label>Quantity</Form.Label>
                     <Form.Control
-                        type="text"
+                        type="number"
                         name="quantity"
                         placeholder="Enter fruit quantity"
                         autoComplete="off"
                         required
+                        min="5"
                     />
                 </Form.Group>
 
@@ -108,17 +110,6 @@ function AddInventoryItem() {
                         type="text"
                         name="supplier"
                         placeholder="Enter supplier name"
-                        autoComplete="off"
-                        required
-                    />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicSold">
-                    <Form.Label>Sold</Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="sold"
-                        placeholder="Enter sold amount"
                         autoComplete="off"
                         required
                     />

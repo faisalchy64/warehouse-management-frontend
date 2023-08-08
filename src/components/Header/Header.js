@@ -13,7 +13,7 @@ function Header() {
     };
 
     return (
-        <Navbar bg="light" expand="md" variant="light">
+        <Navbar bg="light" expand="md" variant="light" className="py-3">
             <Container>
                 <Navbar.Brand as={Link} to="/">
                     <h3 className="mb-0 fw-bold text-danger">FruitMart</h3>

@@ -45,7 +45,7 @@ function Login() {
     }, [user, from, navigate]);
 
     return (
-        <section className="form-section d-flex flex-column justify-content-center align-items-center">
+        <section className="vh-100 d-flex flex-column justify-content-center align-items-center">
             <h2 className="mb-4">Login</h2>
             <Form className="form border border-3 p-3" onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">

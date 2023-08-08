@@ -66,7 +66,7 @@ body {
 
 #mid-banner {
     height: 70vh;
-    background: url("https://img.freepik.com/free-photo/frame-made-fresh-fruits-berries_88281-5416.jpg?w=996");
+    background: url("https://images.pexels.com/photos/5946083/pexels-photo-5946083.jpeg");
     background-size: cover;
     background-position: center;
 }
@@ -80,7 +80,7 @@ body {
     background-position: center;
 }
 
-#get-touch input,
+/* #get-touch input,
 #get-touch button {
     border: none;
     outline: none;
@@ -93,7 +93,7 @@ body {
 
 #get-touch button {
     background: #de3163;
-}
+} */
 
 /* form section */
 
